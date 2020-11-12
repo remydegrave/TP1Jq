@@ -13,15 +13,13 @@
 <body>
     <div class="container">
         <div class="jumbotron text-center">
-            <h3>Le prix de la vitrine est entre 0 et <span class="prixMax">100</span>.</h3>
-            <h1 class="chrono">60</h1>
-            <h2 class="secondes">Secondes</h2>
-            <h2 class="reponse">Trouvez le Juste Prix !</h2>
-            <form id="paris" class="form-inline" role="form">
-                <input type="text" class="form-control" id="nombre" placeholder="Entrez un nombre" autocomplete="off">
-                <button type="submit" class="btn btn-default">Parier!</button>
+            <h1>Le nombre juste est entre 0 et 100</h1>
+            <h2 class="reponse">Trouvez le nombre juste</h2>
+            <form action="#" method="POST" id="choisir" class="form-inline justify-content-center" role="form">
+                <input type="number" id="nombre" class="form-control" placeholder="Entrez votre prix"
+                    autocomplete="off">
+                <button id="valid" type="submit" class="btn btn-default">Valider</button>
             </form>
-            <button id="commencer" class="btn btn-large btn-danger">Commencer !</button>
         </div>
     </div>
     <script src="assets/js/jquery-3.5.1.min.js"></script>

@@ -1,28 +1,4 @@
-body {
-    background: #f5f5f5;
-}
-
-.container {
-    margin-top: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #d9534f;
-}
-
-.jumbotron {
-    padding-top: 10px;
-    background-color: #2e4272;
-}
-
-.btn-danger {
-    margin-top: 10px;
-}
-
-.secondes {
-    margin-top: -20px;
-}
-
-#paris {
-    transition: 0.25s;
-    visibility: hidden;
-    opacity: 0;
+.jumbotron{
+    background-color: 	#4169E1;
+    color: white;
 }

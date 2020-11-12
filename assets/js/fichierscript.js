@@ -1,59 +1,32 @@
-var secondes = 60;
+// j'initialise les valeurs de départ
 var prix = 0;
-var paris = null;
-var prixMax = 20;
-var isPlay = true;
+var choisir = null;
+var compteur = 0;
 
 $('document').ready(function(){
+        // choisir un nombre entier (math floor) gagnant aléatoirement sans dépasser 100 (random)
+        prix = Math.floor(Math.random() * 100);
 
-    $('prixMax').html(prixMax);
-
-    $('#commencer').click(function(){
-
-        $('#nombre').val('');
-
-        secondes = 60;
-        $('.chrono').html(secondes);
-        prix = Math.floor(Math.random() * prixMax);
-        isPlay = true;
-        $('.reponse').html('Trouvez le Juste Prix !')
-        $('#paris').css({'visisbility':'visible','opacity':'1'});
-
-        var chrono = setInterval(function(){
-            if (secondes == 0) {
-                clearInterval(chrono);
-                $('.reponse').html('Perdu !')
-                $('#paris').css({'visibility':'hidden','opacity':'0'});
-                isPlay = false;
+        $('#valid').click(function(event){
+            // la valeur de l'input est égal à la variable choisir
+            choisir = $('#nombre').val();
+            // Afficher que le joueur a gagné et le nombre d'essaie 
+            if (choisir == prix) {
+                $('.reponse').html('Gagné ! Nombre de coup = ' + compteur);
             }
-            else if (isPlay){
-                secondes--;
-                $('.chrono').html(secondes);
+            // Afficher que le nombre gagnant est plus grand
+            else if (choisir < prix) {
+                $('.reponse').html('Plus grand');
             }
-            else {
-                clearInterval(chrono);
-                $('#paris').css({'visibility':'hidden','opacity':'0'});
+            // Afficher que le nombre gagnant est plus petit
+            else{ 
+                $('.reponse').html('plus petit');
             }
-        }, 1000);
-    });
-
-    $('#paris').submit(function(event){
-        if (isPlay){
-            paris = $('#nombre').val();
-
-            if (paris == prix){
-                $('.reponse').html('Gagné !')
-                isPlay = false;
-            }
-            else if (paris < prix){
-                $('.reponse').html('Plus Grand !')
-            }
-            else {
-                $('.reponse').html('Plus Petit !')
-           }
-
-           $('#nombre').val('');
-        }
-        event.preventDefault();
-    });
+            // Pour réinitialiser la valeur de mon input
+            $('#nombre').val('');
+            // empecher de raffraichir la page 
+            event.preventDefault();
+// Ajouter +1 à mon compteur 
+        compteur++ ;    
+        });
 });
